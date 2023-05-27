@@ -23,6 +23,6 @@ urlpatterns = [
         '{{cookiecutter.project_name}}/',
         include('{{cookiecutter.project_name}}.urls'),
     ),
-    path('accounts/', include('django.contrib.auth.urls')),
+    path('accounts/', include('allauth.urls')),
     path('admin/', admin.site.urls),
 ]
