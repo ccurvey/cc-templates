@@ -124,9 +124,28 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 ######################################################################################
-## add the project templates to the template search path (useful for the default
-## login views)
-TEMPLATES[0]['DIRS'].append(f"{BASE_DIR}/website/templates")
+INSTALLED_APPS.extend(
+    (
+        'django.contrib.sites',
+        'allauth',
+        'allauth.account',
+        'allauth.socialaccount',
+        # add other authentication providers here.  Good tutorial at
+        # https://www.digitalocean.com/community/tutorials/how-to-authenticate-django-apps-using-django-allauth
+    )
+)
+
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',
+]
+
+from django.urls import reverse_lazy
+
+LOGIN_REDIRECT_URL = reverse_lazy("{{cookiecutter.project_name}}:index")
+LOGOUT_REDIRECT_URL = reverse_lazy("{{cookiecutter.project_name}}:index")
+
+SITE_ID = 1
 
 ######################################################################################
 INSTALLED_APPS.append("django_extensions")

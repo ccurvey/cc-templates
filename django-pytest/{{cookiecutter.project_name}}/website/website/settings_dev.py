@@ -1,5 +1,6 @@
 from .settings import *
 
+####################################################################################
 # Allow Wing Pro to stop on exceptions and debug templates, when it is present
 
 import os
@@ -29,3 +30,6 @@ DATABASES = {
         conn_health_checks=True,
     ),
 }
+
+#####################################################################################
+EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
