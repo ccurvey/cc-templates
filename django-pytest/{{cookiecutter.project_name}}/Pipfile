@@ -1,0 +1,22 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+django = "*"
+dj-database-url = "*"
+django-extensions = "*"
+psycopg2-binary = "*"
+requests = "*"
+
+[dev-packages]
+black = "*"
+pytest = "*"
+pytest-django = "*"
+pytest-coverage = "*"
+factory-boy = "*"
+coverage = "*"
+
+[requires]
+python_version = "3.11"
