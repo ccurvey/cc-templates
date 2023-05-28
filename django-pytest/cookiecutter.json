@@ -2,7 +2,7 @@
     "project_name" : "some-project",
     "pg_password" : "",
     "su_password" : "",
-    "_copy_without_render" : [
-        "website/website/templates/registration"
+    "_copy_without_render": [
+        "website/{{cookiecutter.project_name}}/templates/*.html"
     ]
 }
