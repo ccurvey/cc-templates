@@ -2,4 +2,10 @@
     <body>
         Hello from {{cookiecutter.project_name}}
     </body>
+
+    {% if request.user.is_authenticated %}
+        <a href="{% url 'account_logout' %}">logout</a>
+    {% else %}
+        <a href="{% url 'account_login' %}"> login </a>
+    {% endif %}
 </html>
