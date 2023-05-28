@@ -1,4 +1,29 @@
 <html>
+    <div>
+      {% block topnav %}
+        {% generate_menu %}
+
+        <ul>
+          {% for dish in menus.breakfast %}
+            <li>
+              <a href="{{dish.url}}">
+                {{dish.title}}
+
+                {% if dish.children %}
+                  <ul>
+                    {% for prep in dish.children %}
+                      <li>{{prep.title}}</li>
+                    {% endfor %}
+                  </ul>
+                {% endif %}
+
+              </a>
+            </li>
+          {% endfor %}
+        </ul>
+      {% endblock topnav %}
+    </div>
+
     <body>
         Hello from {{cookiecutter.project_name}}
     </body>
