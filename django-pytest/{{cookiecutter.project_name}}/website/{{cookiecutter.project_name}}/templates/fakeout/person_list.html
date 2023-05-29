@@ -1,4 +1,4 @@
-{% extends "fakeout/authenticated_base.html" %}
+{% raw %}{% extends "fakeout/authenticated_base.html" %}{% endraw %}
 
 
 {% block page_content %}
@@ -7,16 +7,20 @@
     <thead>
       <th scope="col">Name</th>
       <th scope="col">Email</th>
+      <th scope="col">&nbsp</th>
     </thead>
     <tbody>
       {% for person in object_list %}
         <tr>
           <td>
-            <a href="{% url 'nineteen:person-detail' person.uuid %}">
+            <a href="{% url '{{cookiecutter.project_name}}:person-detail' person.uuid %}">
               {{person.first_name}}&nbsp;{{person.last_name}}
             </a>
           </td>
           <td>{{person.email}}</td>
+          <td>
+            <a href="{% url '{{cookiecutter.project_name}}:person-update' person.uuid %}">Update</a>
+          </td>
         </tr>
       {% endfor %}
     </tbody>
