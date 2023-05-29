@@ -11,7 +11,7 @@ psycopg2-binary = "*"
 requests = "*"
 django-allauth = "*"
 django-simple-menu = "*"
-
+django-vanilla-views = "*"
 
 [dev-packages]
 black = "*"

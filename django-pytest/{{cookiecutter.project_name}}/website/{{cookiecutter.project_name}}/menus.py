@@ -1,6 +1,3 @@
-"""
-Menu definition file as specified by djangos-simple-menu
-"""
 from django.urls import reverse
 from simple_menu import Menu, MenuItem
 
@@ -14,3 +11,16 @@ Menu.add_item(
 )
 Menu.add_item('breakfast', MenuItem("Cereal", "/"))
 Menu.add_item('breakfast', MenuItem("Waffles", "/"))
+
+Menu.add_item(
+    "MainMenu",
+    MenuItem(
+        'Person',
+        reverse("{{cookiecutter.project_name}}:person-list"),
+        children=[
+            MenuItem(
+                "List", reverse("{{cookiecutter.project_name}}:person-list")
+            )
+        ],
+    ),
+)
