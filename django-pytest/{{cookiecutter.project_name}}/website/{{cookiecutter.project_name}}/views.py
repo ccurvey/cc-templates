@@ -16,14 +16,25 @@ class PersonListView(ListView):
         model = Person
         fields = ['first_name', 'last_name', 'email']
 
+
+class PersonProxy(Person):
+    class Meta:
+        proxy = True
+
+    def get_fields(self):
+        try:
+            import wingdbstub
+        except ImportError:
+            pass
+
+        return [
+            (field.verbose_name, field.value_to_string(self))
+            for field in self.__class__._meta.fields
+        ]
+
+
 class PersonDetailView(DetailView):
-    model = Person
+    model = PersonProxy
     template_name = 'fakeout/person_detail.html'
     lookup_field = "uuid"
     lookup_url_kwarg = 'person_uuid'
-
-    def get_object(self):
-        return Person.objects.get(uuid=self.kwargs['person_uuid'])
-
-
-
