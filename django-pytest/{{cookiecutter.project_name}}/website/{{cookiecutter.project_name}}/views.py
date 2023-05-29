@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from .models import Person
-from vanilla import ListView, DetailView
+from vanilla import ListView, DetailView, CreateView
 
 
 # Create your views here.
@@ -22,11 +22,6 @@ class PersonProxy(Person):
         proxy = True
 
     def get_fields(self):
-        try:
-            import wingdbstub
-        except ImportError:
-            pass
-
         return [
             (field.verbose_name, field.value_to_string(self))
             for field in self.__class__._meta.fields

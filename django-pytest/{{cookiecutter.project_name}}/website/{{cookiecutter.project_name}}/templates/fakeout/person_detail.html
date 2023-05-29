@@ -4,10 +4,13 @@
 {% block page_content %}
   <h1>{{object.first_name}}&nbsp;{{object.last_name}}</h1>
 
-  <dl>
+  <table class="table">
     {% for name, value in object.get_fields %}
-      <dt>{{name}}</dt>
-      <dd>{{value}}</dt>
+      <tr>
+        <th>{{name}}</th>
+        <td>{{value}}</td>
+      </tr>
     {% endfor %}
-  </dl>
+  </table>
+
 {% endblock page_content %}
