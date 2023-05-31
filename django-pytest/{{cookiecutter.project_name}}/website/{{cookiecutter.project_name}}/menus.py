@@ -16,7 +16,7 @@ Menu.add_item(
     "MainMenu",
     MenuItem(
         'Person',
-        reverse("nineteen:person-list"),
+        reverse("{{cookiecutter.project_name}}:person-list"),
         children=[
             MenuItem(
                 "List", reverse("{{cookiecutter.project_name}}:person-list")
