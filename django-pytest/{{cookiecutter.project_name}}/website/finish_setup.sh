@@ -1,8 +1,5 @@
 #!/bin/sh
 
-pipenv install
-pipenv install --dev
-
 echo "creating databases"
 
 psql postgres << EOF
