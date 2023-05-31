@@ -150,5 +150,6 @@ SITE_ID = 1
 ######################################################################################
 INSTALLED_APPS.append("django_extensions")
 INSTALLED_APPS.append("simple_menu")
+INSTALLED_APPS.append("django_bootstrap5")
 
 INSTALLED_APPS.append("{{cookiecutter.project_name}}")

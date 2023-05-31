@@ -8,12 +8,12 @@ from .models import Person
 
 
 def index(request):
-    return render(request, "fakeout/index.html")
+    return render(request, "{{cookiecutter.project_name}}/index.html")
 
 
 class PersonListView(ListView):
     model = Person
-    template_name = 'fakeout/person_list.html'
+    template_name = '{{cookiecutter.project_name}}/person_list.html'
 
     class Meta:
         model = Person
@@ -34,7 +34,7 @@ class PersonProxy(Person):
 # doing as much as I can through configuration
 class PersonDetailView(DetailView):
     model = PersonProxy
-    template_name = 'fakeout/person_detail.html'
+    template_name = '{{cookiecutter.project_name}}/person_detail.html'
     lookup_field = "uuid"
     lookup_url_kwarg = 'person_uuid'
 
@@ -47,7 +47,7 @@ class PersonCreateView(CreateView):
         'email',
     ]
 
-    template_name = 'fakeout/person_create.html'
+    template_name = '{{cookiecutter.project_name}}/person_create.html'
     success_url = reverse_lazy("{{cookiecutter.project_name}}:person-list")
 
     def form_valid(self, *args, **kwargs):
@@ -74,7 +74,7 @@ class PersonUpdateForm(forms.ModelForm):
 class PersonUpdateView(UpdateView):
     model = Person
     form_class = PersonUpdateForm
-    template_name = "fakeout/person_update.html"
+    template_name = "{{cookiecutter.project_name}}/person_update.html"
     success_url = reverse_lazy("{{cookiecutter.project_name}}:person-list")
 
     def get_object(request):

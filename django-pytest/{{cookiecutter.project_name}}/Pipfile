@@ -12,6 +12,7 @@ requests = "*"
 django-allauth = "*"
 django-simple-menu = "*"
 django-vanilla-views = "*"
+django-bootstrap5 = "*"
 
 [dev-packages]
 black = "*"
